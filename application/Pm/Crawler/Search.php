@@ -11,9 +11,10 @@ class Search{
         return new self($repositoryName);
     }
     public function getResults(){
-        $results = json_decode(file_get_contents("http://github.com/api/v2/json/repos/search/{$this->repositoryName}?language=php"));
+        $results = json_decode(file_get_contents("http://github.com/api/v2/json/repos/search/{$this->repositoryName}?language=php",false, PROXY));
         $repositoryVo = new Repository();
         $repositories = array();
+        $results = $results->repositories;
         for($i=0;$i<count($results);$i++){
             $repositoryVoClone = clone $repositoryVo;
             foreach($results[$i] as $key=>$value){

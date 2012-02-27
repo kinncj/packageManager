@@ -30,7 +30,12 @@ $console->register('help')->setDescription("Pm help")->setCode(function (InputIn
 $console->register('search')->setDefinition(
 		array(new InputArgument("packagename",InputArgument::REQUIRED, 'packageName'))
 		)->setDescription("Pm search")->setCode(function (InputInterface $input, OutputInterface $output) {
-		    $output->writeln(Search::getInstance($input->getArgument('packagename'))->getResults());
+		    $search = Search::getInstance($input->getArgument('packagename'))->getResults();
+		    foreach($search as $result){
+		        $output->writeln("<question>{$result->name}</question>");
+		        $output->writeln("<info>{$result->url}</info>");
+		        $output->writeln("<info>{$result->description}</info>");
+		    }
     });
     
 $console->register('includePath')->setDefinition(

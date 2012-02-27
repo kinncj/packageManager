@@ -17,6 +17,14 @@ if(!$value){
     die("\nPlease, run ./pm readmeFirst\n");
 }
 
+$aContext = array('http' => array('proxy' => 'tcp://devcasimiro.local:3128', // This needs to be the server and the port of the NTLM Authentication Proxy Server.
+	'request_fulluri' => True,
+    ),
+);
+$cxContext = stream_context_create($aContext);
+
+define('PROXY',$cxContext);
+
 spl_autoload_register(function($className){
     require_once str_replace(array('\\','_'),'/',$className).'.php';
 });
