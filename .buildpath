@@ -2,5 +2,6 @@
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path="vendor/Symfony/Component/Console"/>
+	<buildpathentry excluding="vendor/Symfony/Component/Console/" kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/pear"/>
 </buildpath>

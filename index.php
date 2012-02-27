@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Pm\Crawler\Search;
 
 $console = new Application();
 
@@ -29,9 +30,7 @@ $console->register('help')->setDescription("Pm help")->setCode(function (InputIn
 $console->register('search')->setDefinition(
 		array(new InputArgument("packagename",InputArgument::REQUIRED, 'packageName'))
 		)->setDescription("Pm search")->setCode(function (InputInterface $input, OutputInterface $output) {
-            $result = "";
-            //search here
-		    $output->writeln($result);
+		    $output->writeln(Search::getInstance($input->getArgument('packagename'))->getResults());
     });
     
 $console->register('includePath')->setDefinition(
