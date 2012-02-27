@@ -1,23 +1,21 @@
-This is a PHP package manager for GitHub
-==============
-You can search and download/install your favorite php repos from github directly to your machine via console
-==============
-Roadmap
-==============
-A phar PHPCliapp to run via console without get all the hole code
+Hey guys!
 
-How to use
---------------
+**Our intention here is to provide a easy-to-use and powerful package manager for php projects hosted at github!**
 
-  ./index.php search githubRepo
+We want to build a package manager that can search and download any PHP project hosted at github WITHOUT ANY CONFIGURATION.
 
-How to use in the near future
---------------
-  ./pm search githubRepo
-  OR
-  pm search githubRepo
-  
-  Where pm is the phar file
+So here are the possible uses.
+
+`pm search {package-name}`
+Searches for public php repos.
+
+`pm download {package-name} {directory}`
+Downloads the repository to the current directory, or if specified, to another location.
+
+`pm info {package-name}`
+Gets more information about the package.
+
+We will probably have more command, soon.
   
   
 License Information
